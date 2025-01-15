@@ -1,0 +1,21 @@
+a::selection {
+  background: #1e40af; /* Tailwind's blue-800 */
+  color: white;
+}
+
+.header {
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+}
+
+.header a {
+  color: white;
+}
+
+.header a:hover {
+  color: #ffeb3b;
+}
+
+.active {
+  border-bottom: 2px solid #ffeb3b;
+}

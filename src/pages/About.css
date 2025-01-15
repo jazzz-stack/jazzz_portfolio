@@ -1,0 +1,59 @@
+/* filepath: /Users/jasvantraj/Desktop/TestCiCd-1/src/App.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.A4 {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 20mm;
+  margin: 10mm auto;
+  border: 1px #d3d3d3 solid;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+@media print {
+  body,
+  .A4 {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0;
+    box-shadow: none;
+  }
+}
+
+.colorful-header {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 150, 1) 0%,
+    rgba(0, 204, 255, 1) 100%
+  );
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.colorful-header h1 {
+  color: white;
+}
+
+.colorful-header p {
+  color: white;
+}
+
+.colorful-header a {
+  color: #ffeb3b;
+}

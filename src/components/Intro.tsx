@@ -5,9 +5,6 @@ function Intro() {
         About Me
       </h2>
       <p className="mb-4">
-        React Native Developer | Lucknow, Uttar Pradesh, India
-      </p>
-      <p className="mb-4">
         I am a skilled Senior Software Engineer with extensive experience in
         developing, enhancing, and optimizing mobile and web applications. My
         expertise includes React Native, React.js, JavaScript, TypeScript,

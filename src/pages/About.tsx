@@ -8,39 +8,46 @@ import Intro from "../components/Intro";
 function About() {
   const contentRef = useRef<HTMLDivElement>(null);
 
-  const handlePrint = useReactToPrint({ contentRef });
+  const handlePrint = useReactToPrint({ content: () => contentRef.current });
 
   return (
-    <div className="display justify-center items-center h-screen">
-      <div
-        className="w-full p-8 bg-white shadow-lg rounded-lg"
-        ref={contentRef}
-      >
-        <header className="text-center mb-8 colorful-header">
-          <h1 className="text-4xl font-bold mb-2">Jasvant Raj</h1>
-          <p className="text-lg text-gray-600">Senior Software Engineer</p>
-          <p className="text-gray-600">Lucknow, Uttar Pradesh, India, 226016</p>
-          <p className="text-gray-600">
-            <strong>Contact:</strong> +91-8052004200 |{" "}
-            <a href="mailto:jaswant.raj45@gmail.com" className="text-blue-500">
-              jaswant.raj45@gmail.com
-            </a>
-          </p>
-          <p className="text-gray-600">
-            <strong>LinkedIn:</strong>{" "}
-            <a
-              href="https://linkedin.com/in/jaswant-raj"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500"
-            >
-              linkedin.com/in/jaswant-raj
-            </a>
-          </p>
-        </header>
+    <div className="container mx-auto p-8">
+      <header className="text-center mb-12 colorful-header">
+        <h1 className="text-5xl font-bold mb-4">Jasvant Raj</h1>
+        <p className="text-lg text-gray-100">Senior Software Engineer</p>
+        <p className="text-gray-100">Lucknow, Uttar Pradesh, India, 226016</p>
+        <p className="text-gray-100">
+          <strong>Contact:</strong> +91-8052004200 |{" "}
+          <a href="mailto:jaswant.raj45@gmail.com" className="text-yellow-300">
+            jaswant.raj45@gmail.com
+          </a>
+        </p>
+        <p className="text-gray-100">
+          <strong>LinkedIn:</strong>{" "}
+          <a
+            href="https://linkedin.com/in/jaswant-raj"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-yellow-300"
+          >
+            linkedin.com/in/jaswant-raj
+          </a>
+        </p>
+      </header>
+
+      <div className="bg-white shadow-lg rounded-lg p-8 mb-8">
         <Intro />
+      </div>
+
+      <div className="bg-white shadow-lg rounded-lg p-8 mb-8">
         <Skills />
+      </div>
+
+      <div className="bg-white shadow-lg rounded-lg p-8 mb-8">
         <Projects />
+      </div>
+
+      <div className="bg-white shadow-lg rounded-lg p-8 mb-8">
         <section className="mb-8">
           <h2 className="text-2xl font-bold border-b-2 border-gray-800 pb-2 mb-4">
             Education
@@ -75,18 +82,20 @@ function About() {
             </li>
           </ul>
         </section>
-        <footer className="text-center mt-6">
-          <p>
-            Contact:{" "}
-            <a href="mailto:jaswant.raj45@gmail.com" className="text-blue-500">
-              jaswant.raj45@gmail.com
-            </a>
-          </p>
-        </footer>
       </div>
+
+      <footer className="text-center mt-6">
+        <p>
+          Contact:{" "}
+          <a href="mailto:jaswant.raj45@gmail.com" className="text-blue-500">
+            jaswant.raj45@gmail.com
+          </a>
+        </p>
+      </footer>
+
       <div className="flex justify-end">
         <button
-          onClick={() => handlePrint()}
+          onClick={handlePrint}
           className="mt-3 mb-3 mr-3 px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-700"
         >
           Download as PDF

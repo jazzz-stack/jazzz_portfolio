@@ -8,7 +8,7 @@ import Intro from "../components/Intro";
 function About() {
   const contentRef = useRef<HTMLDivElement>(null);
 
-  const handlePrint = useReactToPrint({ content: () => contentRef.current });
+  const handlePrint = useReactToPrint({ contentRef });
 
   return (
     <div className="display justify-center items-center h-screen">

@@ -13,11 +13,11 @@ function About() {
   return (
     <div className="container mx-auto p-8">
       <div ref={contentRef}>
-        <header className="text-center mb-12 colorful-header">
+        <header className="text-center mb-12 colorful-header bg-gradient-to-r from-purple-200 via-blue-300 to-purple-300">
           <h1 className="text-5xl font-bold mb-4">Jasvant Raj</h1>
-          <p className="text-lg text-gray-100">Senior Software Engineer</p>
-          <p className="text-gray-100">Lucknow, Uttar Pradesh, India, 226016</p>
-          <p className="text-gray-100">
+          <p className="text-lg text-gray-600">Senior Software Engineer</p>
+          <p className="text-gray-500">Lucknow, Uttar Pradesh, India, 226016</p>
+          <p className="text-gray-500">
             <strong>Contact:</strong> +91-8052004200 |{" "}
             <a
               href="mailto:jaswant.raj45@gmail.com"
@@ -100,7 +100,7 @@ function About() {
         <div className="flex justify-end">
           <button
             onClick={() => handlePrint()}
-            className="mt-3 mb-3 mr-3 px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-700"
+            className="mt-3 mb-3 mr-3 px-4 py-2 bg-gradient-to-r from-purple-400 via-blue-300 to-purple-500 text-white rounded-lg shadow-md hover:bg-blue-700"
           >
             Download as PDF
           </button>

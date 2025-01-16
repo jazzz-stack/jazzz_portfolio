@@ -11,7 +11,7 @@ function Projects() {
         Projects
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 transform hover:scale-105">
+        <div className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
           <img
             src={revio}
             alt="Rev.IO FSA"
@@ -35,7 +35,7 @@ function Projects() {
             </ul>
           </div>
         </div>
-        <div className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 transform hover:scale-105">
+        <div className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
           <img
             src={pepsico}
             alt="PepsiCo - MiNegocio+"
@@ -56,7 +56,7 @@ function Projects() {
             </ul>
           </div>
         </div>
-        <div className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 transform hover:scale-105">
+        <div className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
           <img src={taxi} alt="AER Taxi" className="w-full h-48 object-fill" />
           <div className="p-4">
             <h3 className="font-bold text-xl mb-2">AER Taxi</h3>
@@ -73,7 +73,7 @@ function Projects() {
             </ul>
           </div>
         </div>
-        <div className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 transform hover:scale-105">
+        <div className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
           <img
             src={ecomnow}
             alt="eComNow"
@@ -94,7 +94,7 @@ function Projects() {
             </ul>
           </div>
         </div>
-        <div className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 transform hover:scale-105">
+        <div className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
           <img
             src={boxpro}
             alt="Box Pro fitness"

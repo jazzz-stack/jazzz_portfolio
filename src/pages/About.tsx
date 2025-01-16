@@ -8,7 +8,9 @@ import Intro from "../components/Intro";
 function About() {
   const contentRef = useRef<HTMLDivElement>(null);
 
-  const handlePrint = useReactToPrint({ content: () => contentRef.current });
+  const handlePrint = useReactToPrint({
+    contentRef: contentRef,
+  });
 
   return (
     <div className="container mx-auto p-8" ref={contentRef}>

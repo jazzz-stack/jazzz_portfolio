@@ -1,6 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
+import Modal from "react-modal";
 
 const Contact: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsModalOpen(true);
+  };
+
+  const handleSendEmail = () => {
+    const mailtoLink = `mailto:jaswant.raj45@gmail.com?subject= ${
+      formData.name
+    }&body=${encodeURIComponent(
+      `${formData.message} \n\n\nName: ${formData.name} \nEmail: ${formData.email}`
+    )}`;
+
+    window.location.href = mailtoLink;
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="container mx-auto p-8">
       <h1 className="text-4xl font-bold mb-8 text-center">Contact Us</h1>
@@ -13,29 +45,41 @@ const Contact: React.FC = () => {
             services, pricing, or anything else, our team is ready to answer all
             your questions.
           </p>
-          <form className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-gray-700">Name</label>
               <input
                 type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
                 className="w-full p-2 border border-gray-300 rounded"
                 placeholder="Your Name"
+                required
               />
             </div>
             <div>
               <label className="block text-gray-700">Email</label>
               <input
                 type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 className="w-full p-2 border border-gray-300 rounded"
                 placeholder="Your Email"
+                required
               />
             </div>
             <div>
               <label className="block text-gray-700">Message</label>
               <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
                 className="w-full p-2 border border-gray-300 rounded"
                 placeholder="Your Message"
                 rows={5}
+                required
               ></textarea>
             </div>
             <button
@@ -57,7 +101,7 @@ const Contact: React.FC = () => {
           <p className="text-gray-700 mb-4">
             <strong>Email:</strong>{" "}
             <a href="mailto:info@yourcompany.com" className="text-blue-500">
-              jaswant.raj45@gmail.com
+              info@yourcompany.com
             </a>
           </p>
           <h2 className="text-2xl font-semibold mb-4">Follow Us</h2>
@@ -77,6 +121,44 @@ const Contact: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={() => setIsModalOpen(false)}
+        contentLabel="Confirm Email"
+        className="modal"
+        overlayClassName="overlay"
+      >
+        <h2 className="text-2xl font-bold mb-4">Confirm Email</h2>
+        <p className="mb-4">
+          <strong>To:</strong> jaswant.raj45@gmail.com
+        </p>
+        <p className="mb-4">
+          <strong>Subject:</strong> Message from {formData.name}
+        </p>
+        <p className="mb-4">
+          <strong>Message:</strong>
+          <br />
+          {formData.message}
+        </p>
+        <p className="mb-4">
+          <strong>From:</strong> {formData.name} ({formData.email})
+        </p>
+        <div className="flex justify-end space-x-4">
+          <button
+            onClick={() => setIsModalOpen(false)}
+            className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-700 transition-colors duration-300"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={handleSendEmail}
+            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition-colors duration-300"
+          >
+            Send Email
+          </button>
+        </div>
+      </Modal>
     </div>
   );
 };

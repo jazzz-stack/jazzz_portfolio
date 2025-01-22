@@ -11,9 +11,9 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="bg-gradient-to-r from-purple-400 via-blue-300 to-purple-500 shadow-md w-full fixed top-0 left-0 z-50 transition-all duration-300 ease-in-out">
-      <nav className="max-w-4xl mx-auto p-4 flex justify-between items-center">
-        <div className="text-2xl font-bold text-white">My Portfolio</div>
+    <div className="bg-gradient-to-r from-purple-400 via-blue-300 to-purple-500 w-full p-4 fixed top-0 left-0 z-50 ">
+      <nav className="max-w-7xl flex justify-between">
+        <div className="text-2xl font-bold text-white">Portfolio</div>
         <div className="hidden md:flex space-x-4">
           <Link
             to="/"
@@ -24,21 +24,14 @@ const Header: React.FC = () => {
             Home
           </Link>
           <Link
-            to="/about"
+            to="/cv"
             className={`text-white hover:text-yellow-300 transition-colors duration-300 ${
               location.pathname === "/about" ? "active" : ""
             }`}
           >
-            About
+            CV
           </Link>
-          <Link
-            to="/services"
-            className={`text-white hover:text-yellow-300 transition-colors duration-300 ${
-              location.pathname === "/services" ? "active" : ""
-            }`}
-          >
-            Services
-          </Link>
+
           <Link
             to="/contact"
             className={`text-white hover:text-yellow-300 transition-colors duration-300 ${
@@ -71,7 +64,7 @@ const Header: React.FC = () => {
         </div>
       </nav>
       <div
-        className={`fixed inset-0 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 shadow-md transform ${
+        className={`fixed inset-0 bg-gradient-to-r from-blue-400  to-purple-400 w-1/2 shadow-md transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 ease-in-out md:hidden`}
       >
@@ -105,23 +98,15 @@ const Header: React.FC = () => {
             Home
           </Link>
           <Link
-            to="/about"
+            to="/cv"
             className={`text-white hover:text-yellow-300 transition-colors duration-300 ${
               location.pathname === "/about" ? "active" : ""
             }`}
             onClick={toggleMenu}
           >
-            About
+            Cv
           </Link>
-          <Link
-            to="/services"
-            className={`text-white hover:text-yellow-300 transition-colors duration-300 ${
-              location.pathname === "/services" ? "active" : ""
-            }`}
-            onClick={toggleMenu}
-          >
-            Services
-          </Link>
+
           <Link
             to="/contact"
             className={`text-white hover:text-yellow-300 transition-colors duration-300 ${
@@ -133,7 +118,7 @@ const Header: React.FC = () => {
           </Link>
         </nav>
       </div>
-    </header>
+    </div>
   );
 };
 

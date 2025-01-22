@@ -1,5 +1,3 @@
-import React from "react";
-
 function CvHeader() {
   return (
     <div className="flex flex-wrap bg-slate-300 p-5 m-5 rounded-lg">

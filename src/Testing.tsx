@@ -1,7 +1,7 @@
 import { useState } from "react";
 import logo from "./assets/images/boxpro.webp";
 function Testing() {
-  const [data, setData] = useState([
+  const [data] = useState([
     1, 2, 3, 4, 5, 6, 7, 8, 9, 101, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5,
     6, 7, 8, 9, 101, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 101,
     2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 101, 2, 3, 4, 5, 6,
@@ -35,7 +35,7 @@ function Testing() {
           </h2>
         </div>
         <div className="grid grid-cols-8 items-center gap-4">
-          {data.map((item, index) => (
+          {data.map(() => (
             <div className="shadow-md overflow-hidden flex flex-col bg-white items-center pb-5 m-5 rounded-md text-center">
               <img
                 className="rounded-md hover:scale-125 duration-1000"

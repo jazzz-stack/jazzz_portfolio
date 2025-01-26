@@ -3,7 +3,11 @@ import ecomnow from "../assets/images/ecomnow.png";
 import boxpro from "../assets/images/boxpro.webp";
 import revio from "../assets/images/revio.webp";
 import pepsico from "../assets/images/pepsico.png";
-import taxi from "../assets/images/taxi.jpeg";
+import customer from "../assets/images/customer.png";
+import provider from "../assets/images/provider.png";
+import aer_customer from "../assets/images/aer_customer.png";
+import aer_driver from "../assets/images/aer_driver.png";
+
 import Experience from "./cv/components/Experience";
 
 const Portfolio: React.FC = () => {
@@ -145,7 +149,14 @@ const Portfolio: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+          <div
+            onClick={() =>
+              window.open(
+                "https://play.google.com/store/apps/details?id=com.pepsicoconsumer.minegocio&pcampaignid=web_share"
+              )
+            }
+            className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
+          >
             <img
               src={pepsico}
               alt="PepsiCo - MiNegocio+"
@@ -167,23 +178,159 @@ const Portfolio: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+          <div
+            onClick={() =>
+              window.open("https://apps.apple.com/in/app/a-e-r/id1615394811")
+            }
+            className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
+          >
             <img
-              src={taxi}
+              src={aer_customer}
               alt="AER Taxi"
               className="w-full h-48 object-contain"
             />
             <div className="p-6">
-              <h3 className="text-2xl font-bold mb-2">AER Taxi</h3>
+              <h3 className="text-2xl font-bold mb-2">
+                AER Electric Ride-Share
+              </h3>
               <p className="text-gray-600 mb-2">03/2022 - 06/2022</p>
               <ul className="list-disc list-inside ml-4 text-gray-700">
                 <li>
-                  Cloned 6+ projects, implementing new features, bug fixing, and
-                  publishing apps on stores.
+                  Luxury Travel at Affordable Prices: Experience a stress-free
+                  and cost-effective ride in a luxury vehicle, whether traveling
+                  long distances or a few miles.
                 </li>
                 <li>
-                  Led the team in writing unit tests, improving code quality and
-                  productivity by 60%.
+                  Safe and Reliable Service: Enjoy peace of mind with
+                  background-checked drivers and the ability to track your ride
+                  in real-time through the AER app.
+                </li>
+                <li>
+                  Convenient Features: Easily book rides for now or schedule
+                  them for the future, even for someone else, and rate your
+                  experience to help maintain quality service.
+                </li>
+                <li>
+                  Led the front-end development, designing user-friendly
+                  interfaces and ensuring seamless app navigation.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div
+            onClick={() =>
+              window.open("https://apps.apple.com/in/app/a-e-r/id1615394811")
+            }
+            className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
+          >
+            <img
+              src={aer_driver}
+              alt="AER Taxi"
+              className="w-full h-48 object-contain"
+            />
+            <div className="p-6">
+              <h3 className="text-2xl font-bold mb-2">AER Ride-Share Driver</h3>
+              <p className="text-gray-600 mb-2">03/2022 - 06/2022</p>
+              <ul className="list-disc list-inside ml-4 text-gray-700">
+                <li>
+                  Flexible Earnings: Work at your convenience—choose your own
+                  hours and locations to maximize your income. No boss, no
+                  pressure.
+                </li>
+                <li>
+                  Easy Onboarding: Become a driver partner with a simple
+                  background screening process. Get started quickly and
+                  hassle-free.
+                </li>
+                <li>
+                  Eco-Friendly Mission: Join AER and contribute to a greener
+                  environment while earning. Help reduce the carbon footprint
+                  through your work.
+                </li>
+                <li>
+                  Utilized React Native for cross-platform development,
+                  implemented real-time driver tracking with Google Maps API,
+                  and ensured secure user authentication using Firebase.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div
+            onClick={() =>
+              window.open(
+                "https://apps.apple.com/in/app/direct-paramed-provider/id1608493398"
+              )
+            }
+            className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
+          >
+            <img
+              src={provider}
+              alt="AER Taxi"
+              className="w-full h-48 object-contain"
+            />
+            <div className="p-6">
+              <h3 className="text-2xl font-bold mb-2">
+                Direct Paramed Provider
+              </h3>
+              <p className="text-gray-600 mb-2">03/2022 - 06/2022</p>
+              <ul className="list-disc list-inside ml-4 text-gray-700">
+                <li>
+                  Flexible On-Demand Services: Providers receive service
+                  requests within 30 miles, with details on pay and location,
+                  and can cancel if unsafe.
+                </li>
+                <li>
+                  Efficient Features: The app offers navigation, automatic
+                  status updates, real-time tracking, and customer preferences
+                  for specific providers.
+                </li>
+                <li>
+                  Simple Onboarding: Upload certifications to apply; resources
+                  for quick phlebotomy certification are available. Approval
+                  takes 3-7 days.
+                </li>
+                <li>
+                  Achieved a 20% reduction in booking time with optimized APIs,
+                  resulting in a 4.8/5 average user rating on the app store.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div
+            onClick={() =>
+              window.open(
+                "https://apps.apple.com/in/app/direct-paramed-customer/id1608482853"
+              )
+            }
+            className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
+          >
+            <img
+              src={customer}
+              alt="AER Taxi"
+              className="w-full h-48 object-contain ite"
+            />
+            <div className="p-6">
+              <h3 className="text-2xl font-bold mb-2">
+                Direct Paramed Customer
+              </h3>
+              <p className="text-gray-600 mb-2">03/2022 - 06/2022</p>
+              <ul className="list-disc list-inside ml-4 text-gray-700">
+                <li>
+                  On-Demand Healthcare Services: Request certified healthcare
+                  professionals for blood draws, drug screenings, and medical
+                  exams via our app, with real-time tracking and convenience.
+                </li>
+                <li>
+                  No Insurance Needed: Order lab tests directly through the app,
+                  with quick results delivered via a patient portal or mail.
+                </li>
+                <li>
+                  Custom Solutions for Businesses: Get temporary staffing or
+                  organize health events tailored to your needs, all without
+                  contracts.
                 </li>
               </ul>
             </div>

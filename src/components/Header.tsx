@@ -40,6 +40,14 @@ const Header: React.FC = () => {
           >
             Contact
           </Link>
+          <Link
+            to="/testing"
+            className={`text-white hover:text-yellow-300 transition-colors duration-300 ${
+              location.pathname === "/" ? "active" : ""
+            }`}
+          >
+            Testing
+          </Link>
         </div>
         <div className="md:hidden">
           <button

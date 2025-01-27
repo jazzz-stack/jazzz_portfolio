@@ -23,7 +23,7 @@ const Contact: React.FC = () => {
   };
 
   const handleSendEmail = () => {
-    const mailtoLink = `mailto:jaswant.raj45@gmail.com?subject= ${
+    const mailtoLink = `mailto:jaswant.raj45@gmail.com?subject=${
       formData.name
     }&body=${encodeURIComponent(
       `${formData.message} \n\n\nName: ${formData.name} \nEmail: ${formData.email}`
@@ -84,6 +84,7 @@ const Contact: React.FC = () => {
             </div>
             <button
               type="submit"
+              onClick={() => handleSendEmail()}
               className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-700 transition-colors duration-300"
             >
               Send Message
@@ -93,72 +94,50 @@ const Contact: React.FC = () => {
         <div>
           <h2 className="text-2xl font-semibold mb-4">Contact Information</h2>
           <p className="text-gray-700 mb-4">
-            <strong>Address:</strong> 1234 Street Name, City, State, 12345
+            <strong>Address:</strong> Barahpur Kaji, Basti, Uttar Pradesh,
+            272130, India
           </p>
           <p className="text-gray-700 mb-4">
-            <strong>Phone:</strong> (123) 456-7890
+            <strong>Phone:</strong> +91-8052004200
           </p>
           <p className="text-gray-700 mb-4">
             <strong>Email:</strong>{" "}
-            <a href="mailto:info@yourcompany.com" className="text-blue-500">
-              info@yourcompany.com
+            <a
+              href="mailto:jaswant.raj45@gmail.com?subject=Reports"
+              className="text-blue-500"
+            >
+              jaswant.raj45@gmail.com
             </a>
           </p>
           <h2 className="text-2xl font-semibold mb-4">Follow Us</h2>
           <div className="flex space-x-4">
-            <a href="#" className="text-blue-500 hover:text-blue-700">
+            <a
+              href="https://www.facebook.com/p/Jaswant-Raj-100012414181970/"
+              className="text-blue-500 hover:text-blue-700"
+            >
               <i className="fab fa-facebook-f"></i> Facebook
             </a>
-            <a href="#" className="text-blue-500 hover:text-blue-700">
+            <a
+              href="https://x.com/jaswant_raj45"
+              className="text-blue-500 hover:text-blue-700"
+            >
               <i className="fab fa-twitter"></i> Twitter
             </a>
-            <a href="#" className="text-blue-500 hover:text-blue-700">
+            <a
+              href="https://www.linkedin.com/in/jaswant-raj"
+              className="text-blue-500 hover:text-blue-700"
+            >
               <i className="fab fa-linkedin-in"></i> LinkedIn
             </a>
-            <a href="#" className="text-blue-500 hover:text-blue-700">
+            <a
+              href="https://www.instagram.com/jaizz3/?hl=en"
+              className="text-blue-500 hover:text-blue-700"
+            >
               <i className="fab fa-instagram"></i> Instagram
             </a>
           </div>
         </div>
       </div>
-
-      <Modal
-        isOpen={isModalOpen}
-        onRequestClose={() => setIsModalOpen(false)}
-        contentLabel="Confirm Email"
-        className="modal"
-        overlayClassName="overlay"
-      >
-        <h2 className="text-2xl font-bold mb-4">Confirm Email</h2>
-        <p className="mb-4">
-          <strong>To:</strong> jaswant.raj45@gmail.com
-        </p>
-        <p className="mb-4">
-          <strong>Subject:</strong> Message from {formData.name}
-        </p>
-        <p className="mb-4">
-          <strong>Message:</strong>
-          <br />
-          {formData.message}
-        </p>
-        <p className="mb-4">
-          <strong>From:</strong> {formData.name} ({formData.email})
-        </p>
-        <div className="flex justify-end space-x-4">
-          <button
-            onClick={() => setIsModalOpen(false)}
-            className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-700 transition-colors duration-300"
-          >
-            Cancel
-          </button>
-          <button
-            onClick={handleSendEmail}
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition-colors duration-300"
-          >
-            Send Email
-          </button>
-        </div>
-      </Modal>
     </div>
   );
 };

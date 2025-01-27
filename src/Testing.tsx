@@ -1,32 +1,34 @@
 import { useState } from "react";
 import logo from "./assets/images/boxpro.webp";
+import "@fortawesome/fontawesome-free/css/all.css";
+
 function Testing() {
-  const [data] = useState([
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 101, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5,
-    6, 7, 8, 9, 101, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 101,
-    2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 101, 2, 3, 4, 5, 6,
-    7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 101, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1,
-    2, 3, 4, 5, 6, 7, 8, 9, 101, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6,
-    7, 8, 9, 101, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 101, 2,
-    3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 101, 2, 3, 4, 5, 6, 7,
-    8, 9, 10,
+  const [data] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
+  const [services] = useState([
+    { title: "Web Designing", icon: "fas fa-laptop" },
+    { title: "Mobile Designing", icon: "fas fa-mobile-screen-button" },
+    { title: "Consultancy Support", icon: "fas fa-headset" },
+    { title: "Network Security", icon: "fas fa-shield-halved" },
   ]);
+
   return (
     <>
       <div>
         <h1>Our services</h1>
       </div>
       <div className="grid grid-cols-5">
-        <div className="flex flex-col items-center">
-          <i className="fas fa-camera"></i>
-          <div>Web Designing</div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi saepe
-            sequi hic quam amet, vero quis quaerat laborum maiores delectus
-            doloremque quidem ipsum quae consequuntur aspernatur enim possimus
-            voluptatibus corrupti!
-          </p>
-        </div>
+        {services.map((item: { icon: string; title: string }) => (
+          <div className="flex flex-col items-center shadow-lg text-center p-5 m-5 rounded-md">
+            <i className={`fas ${item.icon} text-7xl`}></i>
+            <div className="text-3xl py-5 font-semibold">{item.title}</div>
+            <p className="font-sans">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
+              saepe sequi hic quam amet, vero quis quaerat laborum maiores
+              delectus doloremque quidem ipsum quae consequuntur aspernatur enim
+              possimus voluptatibus corrupti!
+            </p>
+          </div>
+        ))}
       </div>
       <div>
         <div className="items-center">
@@ -52,11 +54,7 @@ function Testing() {
         <div className="row-span-3  bg-cyan-400">RJ</div>
         <div className="bg-cyan-400 max-w-[1/2]">
           Hi there hkf f f hf f y yu v yug yuvy yy f f f f hjHi there hkf f f hf
-          f y yu v yug yuvy yy f f f f hjHi there hkf f f hf f y yu v yug yuvy
-          yy f f f f hjHi there hkf f f hf f y yu v yug yuvy yy f f f f hjHi
-          there hkf f f hf f y yu v yug yuvy yy f f f f hj yy f f f f hjHi there
-          hkf f f hf f y yu v yug yuvy yy f f f f hjHi there hkf f f hf f y yu v
-          yug yuvy yy f f f f hj
+          f y yu v yug yuvy yy f f f f
         </div>
         <div className="row-span-2 bg-cyan-400">
           hello there how are you doing?

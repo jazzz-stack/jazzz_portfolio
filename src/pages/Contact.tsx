@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Modal from "react-modal";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -7,8 +6,6 @@ const Contact: React.FC = () => {
     email: "",
     message: "",
   });
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -19,7 +16,6 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsModalOpen(true);
   };
 
   const handleSendEmail = () => {
@@ -30,7 +26,6 @@ const Contact: React.FC = () => {
     )}`;
 
     window.location.href = mailtoLink;
-    setIsModalOpen(false);
   };
 
   return (

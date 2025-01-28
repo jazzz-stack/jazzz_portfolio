@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 
 export default function PrivacyPolicy() {

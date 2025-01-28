@@ -2,7 +2,7 @@
   "name": "testcicd",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://jazzz-stack.github.io/jazzz_portfolio/",
+  "homepage": "https://jazzz-stack.github.io/testcicd/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 
-export default function PrivacyPolicy() {
+const PrivacyPolicy = () => {
   const contentRef = useRef<HTMLDivElement>(null);
 
   const handlePrint = useReactToPrint({ contentRef });
@@ -101,4 +101,6 @@ export default function PrivacyPolicy() {
       </div>
     </div>
   );
-}
+};
+
+export default PrivacyPolicy;

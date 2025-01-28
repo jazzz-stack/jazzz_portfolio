@@ -48,6 +48,15 @@ const Header: React.FC = () => {
           >
             Testing
           </Link> */}
+
+          <Link
+            to="/policy"
+            className={`text-white hover:text-yellow-300 transition-colors duration-300 ${
+              location.pathname === "/contact" ? "active" : ""
+            }`}
+          >
+            Privacy Policy
+          </Link>
         </div>
         <div className="md:hidden">
           <button

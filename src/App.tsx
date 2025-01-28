@@ -5,23 +5,20 @@ import Header from "./components/Header";
 import Cv from "./pages/cv/Cv";
 import Testing from "./Testing";
 import PrivacyPolicy from "./pages/policy/PrivacyPolicy";
-import { HashRouter } from "react-router-dom";
 
 function App() {
   return (
     <Router>
       <Header />
       <div className="pt-20">
-        <HashRouter>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/cv" element={<Cv />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/testing" element={<Testing />} />
-            <Route path="/policy" element={<PrivacyPolicy />} />
-            <Route path="*" element={<Home />} /> {/* Fallback route */}
-          </Routes>
-        </HashRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cv" element={<Cv />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/testing" element={<Testing />} />
+          <Route path="/policy" element={<PrivacyPolicy />} />
+          <Route path="*" element={<Home />} /> {/* Fallback route */}
+        </Routes>
       </div>
     </Router>
   );

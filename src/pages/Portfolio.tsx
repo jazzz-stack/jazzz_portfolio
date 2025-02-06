@@ -1,16 +1,25 @@
 import React from "react";
-import ecomnow from "../assets/images/ecomnow.png";
-import boxpro from "../assets/images/boxpro.webp";
-import revio from "../assets/images/revio.webp";
-import pepsico from "../assets/images/pepsico.png";
-import customer from "../assets/images/customer.png";
-import provider from "../assets/images/provider.png";
 import aer_customer from "../assets/images/aer_customer.png";
 import aer_driver from "../assets/images/aer_driver.png";
+import boxpro from "../assets/images/boxpro.webp";
+import customer from "../assets/images/customer.png";
+import ecomnow from "../assets/images/ecomnow.png";
+import pepsico from "../assets/images/pepsico.png";
+import provider from "../assets/images/provider.png";
+import revio from "../assets/images/revio.webp";
 
 import Experience from "./cv/components/Experience";
+import { useQueryClient } from "@tanstack/react-query";
+import queryClientPersisted from "../utils/persistQuryClient";
 
-const Portfolio: React.FC = () => {
+const Portfolio = () => {
+  const queryClient = useQueryClient();
+  const data = queryClient.getQueryData(["jazzz"]);
+  const data1 = queryClientPersisted.getQueryData(["jazzz111"]);
+
+  console.log("data:::jazzz", data);
+  console.log("data1::::jazzz111-", data1);
+
   return (
     <div className="container mx-auto p-8">
       <header className="text-center mb-12 colorful-header bg-gradient-to-r from-purple-200 via-blue-300 to-purple-300">
@@ -87,7 +96,7 @@ const Portfolio: React.FC = () => {
           {[
             "React Native",
             "Expo",
-            "Reactjs",
+            "React.js",
             "JavaScript & ES6",
             "CI CD (GitHub Actions & Azure DevOps)",
             "Jest",
@@ -109,12 +118,14 @@ const Portfolio: React.FC = () => {
             "App Store & Play Store",
             "Full Story",
           ].map((skill) => (
-            <span
-              key={skill}
-              className="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg"
-            >
-              {skill}
-            </span>
+            <div key={skill}>
+              <span
+                key={skill}
+                className="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg"
+              >
+                {skill}
+              </span>
+            </div>
           ))}
         </div>
       </section>
@@ -134,16 +145,21 @@ const Portfolio: React.FC = () => {
               <p className="text-gray-600 mb-2">04/2024 - Present</p>
               <ul className="list-disc list-inside ml-4 text-gray-700">
                 <li>
-                  Simplified fieldwork with tools for managing tickets,
-                  contacts, and opportunities, even offline. Key features
-                  include GPS navigation, CRM access, auto-sync, and dispatch
-                  tracking.
+                  Enhanced app performance by 30-40% through optimization and
+                  code refactoring. Implemented On-Prem user accounts, signature
+                  capture functionality, and robust unit tests, reducing
+                  production bugs by 50%.
                 </li>
                 <li>
-                  Enhanced app performance by 70-80% through optimization and
-                  code refactoring. Implemented On-Prem user accounts, signature
-                  functionality, and robust unit tests, reducing production bugs
-                  by 50%.
+                  Spearheaded the development of new features, cross-platform
+                  functionalities, and real-time notifications, resulting in a
+                  70% increase in user engagement.
+                </li>
+                <li>published the app on the App Store and Play Store.</li>
+                <li>
+                  Streamlined fieldwork with offline tools for managing tickets,
+                  contacts, and opportunities. Features include CRM access,
+                  auto-sync, and dispatch tracking.
                 </li>
               </ul>
             </div>
@@ -168,11 +184,16 @@ const Portfolio: React.FC = () => {
               <ul className="list-disc list-inside ml-4 text-gray-700">
                 <li>
                   Enhanced digital ordering and profile management with OKTA
-                  integration, increasing order accuracy by 40% and customer
-                  satisfaction by 25%.
+                  integration, which increased order accuracy by 40% and
+                  customer satisfaction by 25%.
                 </li>
                 <li>
-                  Provided 6+ trainings to troubleshoot the bugs & crash issues.
+                  Provided over 6 training sessions to troubleshoot bugs and
+                  crash issues.
+                </li>
+                <li>
+                  Provided 24/7 support to the client to resolve issues,
+                  resulting in a 20% reduction in app crashes.
                 </li>
               </ul>
             </div>
@@ -196,23 +217,17 @@ const Portfolio: React.FC = () => {
               <p className="text-gray-600 mb-2">03/2022 - 06/2022</p>
               <ul className="list-disc list-inside ml-4 text-gray-700">
                 <li>
-                  Luxury Travel at Affordable Prices: Experience a stress-free
-                  and cost-effective ride in a luxury vehicle, whether traveling
-                  long distances or a few miles.
-                </li>
-                <li>
-                  Safe and Reliable Service: Enjoy peace of mind with
-                  background-checked drivers and the ability to track your ride
-                  in real-time through the AER app.
-                </li>
-                <li>
-                  Convenient Features: Easily book rides for now or schedule
-                  them for the future, even for someone else, and rate your
-                  experience to help maintain quality service.
-                </li>
-                <li>
                   Led the front-end development, designing user-friendly
                   interfaces and ensuring seamless app navigation.
+                </li>
+                <li>
+                  Implemented Ride Booking & Tracking Features: that allows user
+                  to book a ride instantly, and the app enables real-time
+                  tracking of the driver’s arrival at the specified location.
+                </li>
+                <li>
+                  Scheduled Rides: The app allows users to schedule rides for a
+                  future time, ensuring convenience and planning flexibility.
                 </li>
               </ul>
             </div>
@@ -234,24 +249,23 @@ const Portfolio: React.FC = () => {
               <p className="text-gray-600 mb-2">03/2022 - 06/2022</p>
               <ul className="list-disc list-inside ml-4 text-gray-700">
                 <li>
-                  Flexible Earnings: Work at your convenience—choose your own
-                  hours and locations to maximize your income. No boss, no
-                  pressure.
+                  Utilized the app for cross-platform development, implemented
+                  real-time driver tracking with Google Maps API, and ensured
+                  secure user authentication using Firebase.
                 </li>
                 <li>
-                  Easy Onboarding: Become a driver partner with a simple
-                  background screening process. Get started quickly and
-                  hassle-free.
+                  Implemented a ride rating system: After completing a trip,
+                  users can rate their driver and overall ride experience,
+                  thereby improving service quality.
                 </li>
                 <li>
-                  Eco-Friendly Mission: Join AER and contribute to a greener
-                  environment while earning. Help reduce the carbon footprint
-                  through your work.
+                  Added Agora.io SDK for real-time voice calling to connect with
+                  customers.
                 </li>
                 <li>
-                  Utilized React Native for cross-platform development,
-                  implemented real-time driver tracking with Google Maps API,
-                  and ensured secure user authentication using Firebase.
+                  Implemented onboarding features for driver partners, including
+                  a simple background screening process to ensure a quick and
+                  hassle-free start.
                 </li>
               </ul>
             </div>
@@ -277,23 +291,24 @@ const Portfolio: React.FC = () => {
               <p className="text-gray-600 mb-2">03/2022 - 06/2022</p>
               <ul className="list-disc list-inside ml-4 text-gray-700">
                 <li>
-                  Flexible On-Demand Services: Providers receive service
-                  requests within 30 miles, with details on pay and location,
-                  and can cancel if unsafe.
+                  Implemented Onboarding features that allows user to upload
+                  certifications to apply; resources for quick phlebotomy
+                  certification are available. Approval takes 3-7 days from
+                  admin panel.
                 </li>
                 <li>
-                  Efficient Features: The app offers navigation, automatic
-                  status updates, real-time tracking, and customer preferences
-                  for specific providers.
+                  Integrated navigation, automatic status updates, real-time
+                  tracking, and customer preferences for specific providers.
                 </li>
                 <li>
-                  Simple Onboarding: Upload certifications to apply; resources
-                  for quick phlebotomy certification are available. Approval
-                  takes 3-7 days.
+                  Implemented real-time voice calling feature using Agora.io SDK
+                  to connect with customers, enhancing communication and
+                  support.
                 </li>
                 <li>
-                  Achieved a 20% reduction in booking time with optimized APIs,
-                  resulting in a 4.8/5 average user rating on the app store.
+                  Worked on Flexible On-Demand Services for Providers to receive
+                  service requests within 30 miles, with details on pay and
+                  location, and can cancel if unsafe.
                 </li>
               </ul>
             </div>
@@ -319,18 +334,13 @@ const Portfolio: React.FC = () => {
               <p className="text-gray-600 mb-2">03/2022 - 06/2022</p>
               <ul className="list-disc list-inside ml-4 text-gray-700">
                 <li>
-                  On-Demand Healthcare Services: Request certified healthcare
-                  professionals for blood draws, drug screenings, and medical
-                  exams via our app, with real-time tracking and convenience.
+                  Worked on app enhancement and achieved a 20% reduction in
+                  booking time with optimized APIs, resulting in a 4.8/5 average
+                  user rating on the app store.
                 </li>
                 <li>
-                  No Insurance Needed: Order lab tests directly through the app,
-                  with quick results delivered via a patient portal or mail.
-                </li>
-                <li>
-                  Custom Solutions for Businesses: Get temporary staffing or
-                  organize health events tailored to your needs, all without
-                  contracts.
+                  Implemented a rating system for providers to rate customers
+                  and vice versa, ensuring quality service and accountability.
                 </li>
               </ul>
             </div>
@@ -440,4 +450,4 @@ const Portfolio: React.FC = () => {
   );
 };
 
-export default Portfolio;
+export default React.memo(Portfolio);

@@ -1,9 +1,30 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import logo from "./assets/images/boxpro.webp";
 import "@fortawesome/fontawesome-free/css/all.css";
+import axios from "axios";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import queryClientPersisted from "./utils/persistQuryClient";
+
+interface PortfolioProps {
+  id: number;
+  name: string;
+  email: string;
+  phone: string;
+  website: string;
+  username: string;
+}
+
+interface PostData {
+  email: string;
+  id: string;
+  name: string;
+  phone: string;
+  username: string;
+  website: string;
+}
 
 function Testing() {
-  const [data] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
+  const [mapData] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
   const [services] = useState([
     { title: "Web Designing", icon: "fas fa-laptop" },
     { title: "Mobile Designing", icon: "fas fa-mobile-screen-button" },
@@ -11,14 +32,62 @@ function Testing() {
     { title: "Network Security", icon: "fas fa-shield-halved" },
   ]);
 
+  const getData = async () => {
+    const { data } = await axios.get(
+      "https://jsonplaceholder.typicode.com/users"
+    );
+    return data;
+  };
+
+  const { data, isError, isLoading } = useQuery<PortfolioProps[]>({
+    queryKey: ["data"],
+    queryFn: getData,
+  });
+
+  console.log("Data:::::", data);
+
+  if (isLoading) return <div>Loading...</div>;
+  if (isError) return <div>Error...</div>;
+
+  const queryClient = useQueryClient();
+  const mutation = useMutation({
+    mutationFn: (newData: PostData) => {
+      return axios.post("https://jsonplaceholder.typicode.com/users", newData);
+    },
+    onSuccess: (data) => {
+      queryClient.setQueryData(["jazzz"], data);
+      queryClientPersisted.setQueryData(["jazzz111"], data);
+      console.log("Data has been posted successfully", data);
+    },
+    onError(error, variables, context) {
+      console.log("Error while posting data", error, variables, context);
+    },
+  });
+
+  const handlePostData = () => {
+    const body = {
+      email: "jazz@gmail.com",
+      id: "1",
+      name: "JJJJJjj",
+      phone: "66666666666",
+      username: "jjjjjjjjj",
+      website: "jjjjjjjjj.com",
+    };
+    mutation.mutate(body);
+  };
+
   return (
     <>
+      <button onClick={() => handlePostData()}>Post Data</button>
       <div>
         <h1>Our services</h1>
       </div>
       <div className="grid grid-cols-5">
-        {services.map((item: { icon: string; title: string }) => (
-          <div className="flex flex-col items-center shadow-lg text-center p-5 m-5 rounded-md">
+        {services.map((item: { icon: string; title: string }, index) => (
+          <div
+            key={index.toString()}
+            className="flex flex-col items-center shadow-lg text-center p-5 m-5 rounded-md"
+          >
             <i className={`fas ${item.icon} text-7xl`}></i>
             <div className="text-3xl py-5 font-semibold">{item.title}</div>
             <p className="font-sans">
@@ -37,8 +106,11 @@ function Testing() {
           </h2>
         </div>
         <div className="grid grid-cols-8 items-center gap-4">
-          {data.map(() => (
-            <div className="shadow-md overflow-hidden flex flex-col bg-white items-center pb-5 m-5 rounded-md text-center">
+          {mapData.map((item) => (
+            <div
+              key={item.toString()}
+              className="shadow-md overflow-hidden flex flex-col bg-white items-center pb-5 m-5 rounded-md text-center"
+            >
               <img
                 className="rounded-md hover:scale-125 duration-1000"
                 src={logo}
@@ -184,4 +256,4 @@ function Testing() {
   );
 }
 
-export default Testing;
+export default React.memo(Testing);

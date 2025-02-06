@@ -36,7 +36,7 @@ function Cv() {
                 {[
                   "React Native",
                   "Expo",
-                  "Reactjs",
+                  "React.js",
                   "JavaScript & ES6",
                   "Jest",
                   "JSX",

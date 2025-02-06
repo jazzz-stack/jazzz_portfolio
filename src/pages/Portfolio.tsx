@@ -92,20 +92,20 @@ const Portfolio = () => {
 
       <section className="mb-12">
         <h2 className="text-3xl font-bold mb-4">Skills</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="flex flex-wrap gap-6">
           {[
             "React Native",
             "Expo",
             "React.js",
             "JavaScript & ES6",
-            "CI CD (GitHub Actions & Azure DevOps)",
             "Jest",
-            "Vitest",
             "JSX",
+            "Redux",
+            "React Query",
+            "CI CD (GitHub Actions & DevOps)",
             "CSS",
             "TypeScript",
             "RESTful API's",
-            "Redux",
             "GitHub",
             "Azure DevOps",
             "Socket API",
@@ -114,6 +114,7 @@ const Portfolio = () => {
             "AppDynamics",
             "Git",
             "ServiceNow",
+            "Tailwind CSS",
             "React-Bootstrap",
             "App Store & Play Store",
             "Full Story",

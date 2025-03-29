@@ -29,7 +29,6 @@ function Cv() {
                 high-performance solutions across diverse domains.
               </p>
             </section>
-
             <section className="mb-5">
               <h5 className="text-2xl font-bold mb-4">Skills</h5>
               <div className="flex flex-wrap gap-4">
@@ -38,13 +37,14 @@ function Cv() {
                   "Expo",
                   "React.js",
                   "JavaScript & ES6",
+                  "React Query",
+
                   "Jest",
                   "JSX",
                   "Redux",
-                  "React Query",
-                  "CI CD (GitHub Actions & DevOps)",
-                  "CSS",
                   "TypeScript",
+                  "CSS",
+                  "CI CD (GitHub Actions & DevOps)",
                   "RESTful API's",
                   "GitHub",
                   "Azure DevOps",
@@ -68,7 +68,6 @@ function Cv() {
                 ))}
               </div>
             </section>
-
             <div className="flex flex-wrap">
               <div className="w-full md:w-1/2">
                 <Experience />
@@ -79,7 +78,6 @@ function Cv() {
                 <Educations />
               </div>
             </div>
-
             <section className="mb-5">
               <h5 className="text-2xl font-bold mb-4">Achievements</h5>
               <ul className="list-none text-gray-700">

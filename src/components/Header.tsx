@@ -40,14 +40,14 @@ const Header: React.FC = () => {
           >
             Contact
           </Link>
-          {/* <Link
+          <Link
             to="/testing"
             className={`text-white hover:text-yellow-300 transition-colors duration-300 ${
               location.pathname === "/" ? "active" : ""
             }`}
           >
             Testing
-          </Link> */}
+          </Link>
 
           {/* <Link
             to="/policy"

@@ -17,11 +17,9 @@ const Portfolio = () => {
   const data = queryClient.getQueryData(["jazzz"]);
   const data1 = queryClientPersisted.getQueryData(["jazzz111"]);
 
-  console.log("data:::jazzz", data);
-  console.log("data1::::jazzz111-", data1);
-
   return (
     <div className="container mx-auto p-8">
+
       <header className="text-center mb-12 colorful-header bg-gradient-to-r from-purple-200 via-blue-300 to-purple-300">
         <h1 className="text-5xl font-bold mb-4">Jasvant Raj</h1>
         <p className="text-lg text-gray-600">Senior Software Engineer</p>
@@ -38,8 +36,7 @@ const Portfolio = () => {
             href="https://linkedin.com/in/jaswant-raj"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-yellow-300"
-          >
+            className="text-yellow-300">
             linkedin.com/in/jaswant-raj
           </a>
         </p>
@@ -122,8 +119,7 @@ const Portfolio = () => {
             <div key={skill}>
               <span
                 key={skill}
-                className="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg"
-              >
+                className="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg">
                 {skill}
               </span>
             </div>
@@ -172,8 +168,7 @@ const Portfolio = () => {
                 "https://play.google.com/store/apps/details?id=com.pepsicoconsumer.minegocio&pcampaignid=web_share"
               )
             }
-            className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
-          >
+            className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
             <img
               src={pepsico}
               alt="PepsiCo - MiNegocio+"
@@ -204,8 +199,7 @@ const Portfolio = () => {
             onClick={() =>
               window.open("https://apps.apple.com/in/app/a-e-r/id1615394811")
             }
-            className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
-          >
+            className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
             <img
               src={aer_customer}
               alt="AER Taxi"
@@ -238,8 +232,7 @@ const Portfolio = () => {
             onClick={() =>
               window.open("https://apps.apple.com/in/app/a-e-r/id1615394811")
             }
-            className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
-          >
+            className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
             <img
               src={aer_driver}
               alt="AER Taxi"
@@ -278,8 +271,7 @@ const Portfolio = () => {
                 "https://apps.apple.com/in/app/direct-paramed-provider/id1608493398"
               )
             }
-            className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
-          >
+            className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
             <img
               src={provider}
               alt="AER Taxi"
@@ -321,8 +313,7 @@ const Portfolio = () => {
                 "https://apps.apple.com/in/app/direct-paramed-customer/id1608482853"
               )
             }
-            className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
-          >
+            className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
             <img
               src={customer}
               alt="AER Taxi"
@@ -349,8 +340,7 @@ const Portfolio = () => {
 
           <div
             onClick={() => window.open("https://ecomnow.org/ecom-now-connect/")}
-            className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
-          >
+            className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
             <img
               src={ecomnow}
               alt="eComNow"
@@ -376,8 +366,7 @@ const Portfolio = () => {
             onClick={() =>
               window.open("https://cafebazaar.ir/app/com.boxpro.fitness?l=en")
             }
-            className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
-          >
+            className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
             <img
               src={boxpro}
               alt="Box Pro fitness"

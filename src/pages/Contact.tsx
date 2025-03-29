@@ -1,12 +1,16 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 const Contact: React.FC = () => {
+  const common = useSelector<any>((state)=>state.commonReducer)
+  console.log("common::::", common);
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
-
+  
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -71,7 +75,7 @@ const Contact: React.FC = () => {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded"
+                className="w-full p-2 border 1px solid border-gray-300 rounded"
                 placeholder="Your Message"
                 rows={5}
                 required

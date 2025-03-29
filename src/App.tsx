@@ -5,10 +5,13 @@ import Header from "./components/Header";
 import Cv from "./pages/cv/Cv";
 import Testing from "./Testing";
 import PrivacyPolicy from "./pages/policy/PrivacyPolicy";
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 function App() {
   return (
     <Router>
+      <Provider store={store}> 
       <Header />
       <div className="pt-20">
         <Routes>
@@ -20,6 +23,7 @@ function App() {
           <Route path="*" element={<Home />} /> {/* Fallback route */}
         </Routes>
       </div>
+      </Provider>
     </Router>
   );
 }

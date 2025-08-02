@@ -35,9 +35,51 @@ function Cv() {
         const imgY = 30;
         
         pdf.addImage(imgData, "PNG", imgX, imgY, imgWidth * ratio, imgHeight * ratio);
-        pdf.save("Jasvant_Raj_CV.pdf");
+        
+        // Check if we're in a mobile environment or WebView
+        const isInWebView = window.navigator.userAgent.includes('Mobile') || 
+                           'ReactNativeWebView' in window ||
+                           'standalone' in window.navigator ||
+                           /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        
+        if (isInWebView) {
+          // For mobile/WebView: Create blob URL and open in new tab
+          const pdfBlob = pdf.output('blob');
+          const blobUrl = URL.createObjectURL(pdfBlob);
+          
+          // Try to open in new window/tab
+          const newWindow = window.open(blobUrl, '_blank');
+          if (!newWindow) {
+            // If popup blocked, create download link
+            const link = document.createElement('a');
+            link.href = blobUrl;
+            link.download = 'Jasvant_Raj_CV.pdf';
+            link.target = '_blank';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          }
+          
+          // Send message to React Native if available
+          if ('ReactNativeWebView' in window && (window as Record<string, unknown>).ReactNativeWebView) {
+            ((window as Record<string, unknown>).ReactNativeWebView as { postMessage: (message: string) => void }).postMessage(JSON.stringify({
+              type: 'PDF_GENERATED',
+              data: pdf.output('datauristring'),
+              filename: 'Jasvant_Raj_CV.pdf'
+            }));
+          }
+          
+          // Clean up blob URL after a delay
+          setTimeout(() => {
+            URL.revokeObjectURL(blobUrl);
+          }, 10000);
+        } else {
+          // For desktop browsers: Use regular save
+          pdf.save("Jasvant_Raj_CV.pdf");
+        }
       } catch (error) {
         console.error("Error generating PDF:", error);
+        alert("Error generating PDF. Please try again.");
       } finally {
         setIsGeneratingPDF(false);
       }

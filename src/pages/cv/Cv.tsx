@@ -1,5 +1,6 @@
-import { useRef } from "react";
-import { useReactToPrint } from "react-to-print";
+import { useRef, useState } from "react";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 import "./Cv.css";
 import CvHeader from "./components/CvHeader";
 import Experience from "./components/Experience";
@@ -9,8 +10,39 @@ import Educations from "./components/Educations";
 
 function Cv() {
   const contentRef = useRef<HTMLDivElement>(null);
+  const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
 
-  const handlePrint = useReactToPrint({ contentRef });
+  const handleDownloadPDF = async () => {
+    if (contentRef.current) {
+      setIsGeneratingPDF(true);
+      try {
+        const canvas = await html2canvas(contentRef.current, {
+          scale: 2,
+          useCORS: true,
+          allowTaint: true,
+          backgroundColor: "#ffffff",
+        });
+        
+        const imgData = canvas.toDataURL("image/png");
+        const pdf = new jsPDF("p", "mm", "a4");
+        
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = pdf.internal.pageSize.getHeight();
+        const imgWidth = canvas.width;
+        const imgHeight = canvas.height;
+        const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+        const imgX = (pdfWidth - imgWidth * ratio) / 2;
+        const imgY = 30;
+        
+        pdf.addImage(imgData, "PNG", imgX, imgY, imgWidth * ratio, imgHeight * ratio);
+        pdf.save("Jasvant_Raj_CV.pdf");
+      } catch (error) {
+        console.error("Error generating PDF:", error);
+      } finally {
+        setIsGeneratingPDF(false);
+      }
+    }
+  };
 
   return (
     <div className="container mx-auto ">
@@ -94,10 +126,18 @@ function Cv() {
 
       <div className="flex justify-end mt-6 mb-10">
         <button
-          onClick={() => handlePrint()}
-          className="px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300"
+          onClick={handleDownloadPDF}
+          disabled={isGeneratingPDF}
+          className={`px-4 py-2 text-white rounded-lg shadow-md transition-colors duration-300 flex items-center gap-2 ${
+            isGeneratingPDF 
+              ? 'bg-gray-400 cursor-not-allowed' 
+              : 'bg-blue-500 hover:bg-blue-700'
+          }`}
         >
-          Download as PDF
+          {isGeneratingPDF && (
+            <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></div>
+          )}
+          {isGeneratingPDF ? 'Generating PDF...' : 'Download as PDF'}
         </button>
       </div>
     </div>

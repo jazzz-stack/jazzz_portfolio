@@ -3,7 +3,6 @@ import Home from "./pages/Portfolio";
 import Contact from "./pages/Contact";
 import Header from "./components/Header";
 import Cv from "./pages/cv/Cv";
-import Testing from "./Testing";
 import PrivacyPolicy from "./pages/policy/PrivacyPolicy";
 import { Provider } from "react-redux";
 import store from "./store/store";
@@ -18,7 +17,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/cv" element={<Cv />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/testing" element={<Testing />} />
           <Route path="/policy" element={<PrivacyPolicy />} />
           <Route path="*" element={<Home />} /> {/* Fallback route */}
         </Routes>

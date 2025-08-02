@@ -9,13 +9,9 @@ import provider from "../assets/images/provider.png";
 import revio from "../assets/images/revio.webp";
 
 import Experience from "./cv/components/Experience";
-import { useQueryClient } from "@tanstack/react-query";
-import queryClientPersisted from "../utils/persistQuryClient";
 
 const Portfolio = () => {
-  const queryClient = useQueryClient();
-  const data = queryClient.getQueryData(["jazzz"]);
-  const data1 = queryClientPersisted.getQueryData(["jazzz111"]);
+  // Removed unused variables
 
   return (
     <div className="container mx-auto p-8">
